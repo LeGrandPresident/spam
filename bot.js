@@ -4,7 +4,7 @@ const client2 = new Discord.Client();
 
 client.on('ready', () => {
    console.log(`----------------`);
-   console.log(`Credit Farmm - Script By : Kahrbaa `);
+   console.log(`Credit Farmm - Script By : President `);
    console.log(`----------------`);
    console.log(`Loadinng`);
    console.log(`Loadinng.`);
@@ -81,7 +81,69 @@ if (message.content === '!spam') {
       }
 });
 
+ client.on('message', message => {
+	 var prefix = "1-";
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+// -say
+  if (command === "say") {
+          message.delete()
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+  }
+  
+ 
+
+if (command == "embed") {
+    let say = new Discord.RichEmbed()
+  .setThumbnail(message.author.avatarURL)  
+  .setAuthor(message.author.username)
+    .setDescription(args.join("  "))
+    .setColor(0x06DF00)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+  
+
+
+});
+
+ client2.on('message', message => {
+	 var prefix = "2-";
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+// -say
+  if (command === "say") {
+          message.delete()
+    message.channel.sendMessage(args.join(" ")).catch(console.error);
+  }
+  
+ 
+
+if (command == "embed") {
+    let say = new Discord.RichEmbed()
+  .setThumbnail(message.author.avatarURL)  
+  .setAuthor(message.author.username)
+    .setDescription(args.join("  "))
+    .setColor(0x06DF00)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+  
+
+
+});
 
 
 client.login(process.env.TOKEN);// لا تغير فيها شيء
